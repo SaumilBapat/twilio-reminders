@@ -1,3 +1,6 @@
+require('dotenv').config()
+console.log('working' + process.env) // remove this after you've confirmed it working
+
 const express = require("express");
 const cors = require("cors");
 const db = require("./app/models");
