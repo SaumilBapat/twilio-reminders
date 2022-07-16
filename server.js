@@ -1,6 +1,7 @@
 require('dotenv').config()
 console.log('working' + process.env) // remove this after you've confirmed it working
 
+var path = require('path');
 const express = require("express");
 const cors = require("cors");
 const db = require("./app/models");
@@ -28,6 +29,10 @@ db.sequelize.sync({ force: true }).then(() => {
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
+
+// Add React Routes
+var staticPath = path.join(__dirname, '/');
+app.use(express.static(staticPath));
 
 // Add Controller Routes
 require("./app/routes/app.routes")(app);
