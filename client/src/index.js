@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Words from './Words';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Words />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -19,9 +19,12 @@ const Word = mongoose.model('Word', wordSchema);
 
 app.use(express.json());
 
-app.get('/word', async (req, res) => {
-  res.send(`You are connected to express`);
-}); 
+// Define an API endpoint to fetch data from the collection
+app.get('/api/word', async (req, res) => {
+  const words = await Word.find();
+  res.json(words);
+});
+
 app.post('/word', async (req, res) => {
   const { word } = req.body;
   const newWord = new Word({ word });
