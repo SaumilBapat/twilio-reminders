@@ -18,7 +18,7 @@ function WordOutput() {
 
   return (
     <div>
-      <h1>Words 2</h1>
+      <h1>Words</h1>
       <ul>
         {words.map(word => (
           <li key={word._id}>
