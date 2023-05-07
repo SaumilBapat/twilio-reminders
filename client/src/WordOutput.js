@@ -16,18 +16,21 @@ function WordOutput() {
     }
   }, []);
 
+  if (!Array.isArray(words)) {
+    <div><h1>No Words</h1></div>
+  }
   return (
     <div>
       <h1>Words</h1>
-      <ul>
-        {words.map(word => (
-          <li key={word._id}>
-            <h2>{word.word}</h2>
-            <p>{word.definition}</p>
-            {word.example && <p><em>Example:</em> {word.example}</p>}
-          </li>
-        ))}
-      </ul>
+              <ul>
+              {words.map(word => (
+                <li key={word._id}>
+                  <h2>{word.word}</h2>
+                  <p>{word.definition}</p>
+                  {word.example && <p><em>Example:</em> {word.example}</p>}
+                </li>
+              ))}
+            </ul>
     </div>
   );
 }

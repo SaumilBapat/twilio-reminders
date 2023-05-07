@@ -32,6 +32,12 @@ app.post('/word', async (req, res) => {
   res.send(`Added "${word}" to the database.`);
 });
 
+const path = require("path");
+app.use(express.static('client/build'));
+app.get('*', (req, res) => {
+res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
