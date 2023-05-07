@@ -10,9 +10,14 @@ class WordsOuput extends Component {
     this.refreshWords();
   }
 
-  refreshWords() {
+  refreshWords(domain) {
+    if (!domain) {
+      domain = '/api/word';
+    } else {
+      domain = domain + '/api/word';
+    }
     try {
-        axios.get('/api/word')
+        axios.get(domain)
         .then(response => this.setState({words: response.data}));
       } catch (error) {
         console.log(JSON.stringify(error));
