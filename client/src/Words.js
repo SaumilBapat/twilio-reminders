@@ -13,6 +13,7 @@ function Words() {
 
   return (
     <div>
+      {parentState}
       <h1>Add a Word</h1>
       <WordInput onChildChange={handleChildChange} />
       <WordOutput />
