@@ -13,6 +13,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 const wordSchema = new mongoose.Schema({
   word: String,
+  time : Number
 });
 
 const Word = mongoose.model('Word', wordSchema);
@@ -26,8 +27,8 @@ app.get('/api/word', async (req, res) => {
 });
 
 app.post('/word', async (req, res) => {
-  const { word } = req.body;
-  const newWord = new Word({ word });
+  const word  = req.body;
+  const newWord = new Word(word);
   await newWord.save();
   res.send(`Added "${word}" to the database.`);
 });

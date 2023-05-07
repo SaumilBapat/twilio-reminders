@@ -25,9 +25,8 @@ function WordOutput() {
               <ul>
               {words.map(word => (
                 <li key={word._id}>
-                  <h2>{word.word}</h2>
-                  <p>{word.definition}</p>
-                  {word.example && <p><em>Example:</em> {word.example}</p>}
+                  <p>{word.word}</p>
+                  <p>{word.time}</p>
                 </li>
               ))}
             </ul>
