@@ -21,8 +21,9 @@ function WordInput({ onChildChange }) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Reminder:
-        <input type="text" value={word} onChange={(event) => setWord(event.target.value)} />
+        <b>Reminder:  </b>
+        <input type="text" value={word} onChange={(event) => setWord(event.target.value)} />&nbsp;&nbsp;&nbsp;&nbsp;
+        <b>Time:  </b>
         <input type="number" value={time} onChange={(event) => setTime(event.target.value)} />
       </label>
       <button type="submit">Add Reminder</button>

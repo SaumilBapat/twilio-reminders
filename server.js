@@ -33,6 +33,12 @@ app.post('/word', async (req, res) => {
   res.send(`Added "${word}" to the database.`);
 });
 
+app.delete('/api/words', async (req, res) => {
+  const words =  await Word.deleteMany({});
+  console.log(words);
+  res.send('All documents deleted!');
+});
+
 const path = require("path");
 app.use(express.static('client/build'));
 app.get('*', (req, res) => {

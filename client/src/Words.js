@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import WordInput from './WordInput';
 import WordsOutput from './WordsOutput';
+import WordsDelete from './WordsDelete';
 
 function Words() {
   
@@ -8,15 +9,16 @@ function Words() {
   const [parentState, setParentState] = useState(0);
 
   //Set parent state from child
-  const handleChildChange = (childState) => {
+  const handleChildChange = () => {
     setParentState(prevState => prevState + 1);
   };
 
   return (
     <div>
-      <h1>Add a Word</h1>
+      <h1>Add a Reminder</h1>
       <WordInput parentState={parentState} onChildChange={handleChildChange} />
-      <WordsOutput parentState={parentState}/>
+      <WordsOutput parentState={parentState} onChildChange={handleChildChange}/>
+      <WordsDelete parentState={parentState} onChildChange={handleChildChange} />
     </div>
   );
 }

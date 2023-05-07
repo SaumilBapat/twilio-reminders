@@ -37,8 +37,7 @@ class WordsOuput extends Component {
         <ul>
               {this.state.words.map(word => (
                 <li key={word._id}>
-                  <p>{word.word}</p>
-                  <p>{word.time}</p>
+                  <p><b>Reminder</b> {word.word}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Time</b> {word.time}</p>
                 </li>
               ))}
         </ul>
