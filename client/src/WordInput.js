@@ -9,13 +9,11 @@ function WordInput({ onChildChange }) {
     event.preventDefault();
     try {
       await axios.post('/word', {word: word, time: time});
-      alert(`Added ${word} : ${time} to database.`);
       setWord('');
       setTime(0);
-      onChildChange('');
+      onChildChange(time);
     } catch (error) {
       console.log(JSON.stringify(error));
-      alert(JSON.stringify(error));
       alert('Failed to add word to database.');
     }
   };
@@ -23,11 +21,11 @@ function WordInput({ onChildChange }) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Word:
+        Reminder:
         <input type="text" value={word} onChange={(event) => setWord(event.target.value)} />
         <input type="number" value={time} onChange={(event) => setTime(event.target.value)} />
       </label>
-      <button type="submit">Add Word</button>
+      <button type="submit">Add Reminder</button>
     </form>
   );
 }
