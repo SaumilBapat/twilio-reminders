@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-function WordInput() {
+function WordInput({ onChildChange }) {
   const [word, setWord] = useState('');
   const [time, setTime] = useState(0);
 
@@ -16,6 +16,7 @@ function WordInput() {
       alert(JSON.stringify(error));
       alert('Failed to add word to database.');
     }
+    onChildChange(event.target.value);
   };
 
   return (
