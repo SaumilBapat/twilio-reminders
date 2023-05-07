@@ -11,12 +11,13 @@ function WordInput({ onChildChange }) {
       await axios.post('/word', {word: word, time: time});
       alert(`Added ${word} : ${time} to database.`);
       setWord('');
+      setTime(0);
+      onChildChange('');
     } catch (error) {
       console.log(JSON.stringify(error));
       alert(JSON.stringify(error));
       alert('Failed to add word to database.');
     }
-    onChildChange(event.target.value);
   };
 
   return (
