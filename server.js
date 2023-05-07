@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const SendMessage = require('./MessagingClient');
 
 dotenv.config();
-
+//hello
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -29,6 +30,7 @@ app.get('/api/word', async (req, res) => {
 app.post('/word', async (req, res) => {
   const word  = req.body;
   const newWord = new Word(word);
+  SendMessage(word.word);
   await newWord.save();
   res.send(`Added "${word}" to the database.`);
 });
