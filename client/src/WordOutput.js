@@ -17,11 +17,11 @@ function WordOutput() {
   }, []);
 
   if (!Array.isArray(words)) {
-    <div><h1>No Words</h1></div>
+    <div><h1>No Reminders</h1></div>
   }
   return (
     <div>
-      <h1>Words</h1>
+      <h1>Reminders</h1>
               <ul>
               {words.map(word => (
                 <li key={word._id}>
