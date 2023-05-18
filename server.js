@@ -28,15 +28,25 @@ app.get('/api/word', async (req, res) => {
   res.json(words);
 });
 
+// Define an API endpoint to create new data in the collection
 app.post('/word', async (req, res) => {
   const word  = req.body;
   const newWord = new Word(word);
   SendMessage(word.word);
-  MakeCall(word.word);
   await newWord.save();
   res.send(`Added "${word}" to the database.`);
 });
 
+// Delete Word Enpoint which deletes word with provided id
+app.delete('/api/word/:id', async (req, res) => {
+  const words =  await Word.deleteMany({
+    _id: req.params.id
+  });
+  console.log(words);
+  res.send('Word is deleted!');
+});
+
+// Delete All Words Enpoint which deletes all words
 app.delete('/api/words', async (req, res) => {
   const words =  await Word.deleteMany({});
   console.log(words);

@@ -25,6 +25,16 @@ class WordsOuput extends Component {
         alert('Failed to get words from database.');
       }
   }
+  deleteWord(wordId) {
+    try {
+        axios.delete('/api/word/' + wordId)
+        .then(response => this.refreshWords());
+      } catch (error) {
+        console.log(JSON.stringify(error));
+        alert(JSON.stringify(error));
+        alert('Failed to delete word from database.');
+      }
+  }
 
   handleChange = (event) => {
     this.setState({ name: event.target.value });
@@ -43,8 +53,9 @@ class WordsOuput extends Component {
               {this.state.words.map(word => (
                 <li key={word._id}>
                   <p>
-                    <b>Reminder</b> {word.word}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <b>Id</b> {word.id}
+                    <button type="submit" onClick={(event) => this.deleteWord(word._id)}>Delete Reminder</button> 
+                    <b>Reminder2</b> {word.word}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>Id</b> {word._id}
                     <b>Time</b> {word.time}
                   </p>
                 </li>
