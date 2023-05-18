@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const SendMessage = require('./MessagingClient');
+const MakeCall = require('./VoiceClient');
 
 dotenv.config();
 //hello
@@ -31,6 +32,7 @@ app.post('/word', async (req, res) => {
   const word  = req.body;
   const newWord = new Word(word);
   SendMessage(word.word);
+  MakeCall(word.word);
   await newWord.save();
   res.send(`Added "${word}" to the database.`);
 });
