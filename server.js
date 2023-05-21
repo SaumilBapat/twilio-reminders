@@ -46,11 +46,11 @@ app.post('/api/word/:id', async (req, res) => {
       recordingUrl: JSON.stringify(req.body)
     });
     console.log('Word is updated!');
-    console.log(req);
+    console.log(req.body);
     res.send('Word is updated!');
   }
   console.log('Word is not updated!');
-  console.log(req);
+  console.log(req.body);
   res.send('Word is not updated!');
 });
 
