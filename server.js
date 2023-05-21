@@ -39,7 +39,7 @@ app.post('/api/word/:id', async (req, res) => {
     const words = await Word.updateOne({
       _id: req.params.id
     }, {
-      recordingUrl: JSON.stringify(req.body)
+      recordingUrl: JSON.stringify(req.body.sid)
     });
     console.log(words);
     res.send('Word is updated!');
