@@ -47,10 +47,12 @@ app.post('/api/word/:id', async (req, res) => {
     });
     console.log('Word is updated!');
     console.log(req.body);
+    console.log('~~~' + req.body.RecordingSid);
     res.send('Word is updated!');
   }
   console.log('Word is not updated!');
   console.log(req.body);
+  console.log('~~~' + req.body.RecordingSid);
   res.send('Word is not updated!');
 });
 
