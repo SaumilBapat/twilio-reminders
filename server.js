@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const SendMessage = require('./MessagingClient');
@@ -24,7 +25,9 @@ const wordSchema = new mongoose.Schema({
 
 const Word = mongoose.model('Word', wordSchema);
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 
 
 // Define an API endpoint to fetch data from the collection
@@ -42,9 +45,11 @@ app.post('/api/word/:id', async (req, res) => {
     }, {
       recordingUrl: JSON.stringify(req.body)
     });
+    console.log('Word is updated!');
     console.log(req);
     res.send('Word is updated!');
   }
+  console.log('Word is not updated!');
   console.log(req);
   res.send('Word is not updated!');
 });
