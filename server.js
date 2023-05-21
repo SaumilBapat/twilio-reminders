@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const SendMessage = require('./MessagingClient');
-const MakeCall = require('./VoiceClient');
+const InvokeStudio = require('./StudioClient');
 
 dotenv.config();
 //hello
@@ -62,6 +62,7 @@ app.post('/word', async (req, res) => {
   const newWord = new Word(req.body);
   SendMessage(newWord);
   await newWord.save();
+  InvokeStudio(newWord);
   res.send(`Added word to the database.`);
 });
 
