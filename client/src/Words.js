@@ -15,7 +15,7 @@ function Words() {
 
   return (
     <div>
-      <h1>Add a Reminder</h1>
+      <h1>Add a Habit</h1>
       <WordInput parentState={parentState} onChildChange={handleChildChange} />
       <WordsOutput parentState={parentState} onChildChange={handleChildChange}/>
       <WordsDelete parentState={parentState} onChildChange={handleChildChange} />

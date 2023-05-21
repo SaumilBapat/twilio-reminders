@@ -11,7 +11,7 @@ try {
         console.log(reminder.time);
         const hour = moment().hour(); // get the hour component of the current time
         if (now.hour() == reminder.time) {
-            SendMessage(now.format('YYYY-MM-DD HH:mm:ss') + ':REMINDER: ' + reminder.word);
+            SendMessage(reminder);
         }
       }));
         

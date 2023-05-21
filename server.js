@@ -14,8 +14,11 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 const wordSchema = new mongoose.Schema({
-  word: String,
-  time : Number
+  textReminder: String,
+  backupReminder: String,
+  time : Number,
+  mobileNumber: String,
+  backupMobileNumber: String,
 });
 
 const Word = mongoose.model('Word', wordSchema);
@@ -30,11 +33,10 @@ app.get('/api/word', async (req, res) => {
 
 // Define an API endpoint to create new data in the collection
 app.post('/word', async (req, res) => {
-  const word  = req.body;
-  const newWord = new Word(word);
-  SendMessage(word.word);
+  const newWord = new Word(req.body);
+  SendMessage(newWord);
   await newWord.save();
-  res.send(`Added "${word}" to the database.`);
+  res.send(`Added word to the database.`);
 });
 
 // Delete Word Enpoint which deletes word with provided id
