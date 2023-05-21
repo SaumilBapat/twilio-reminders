@@ -39,11 +39,11 @@ app.get('/api/word', async (req, res) => {
 // Define an endpoint to update data in the collection based on it's Id and recording url 
 app.post('/api/word/:id', async (req, res) => {
 
-  if (req.body && req.body.sid) {
+  if (req.body && req.body.RecordingUrl) {
     const words = await Word.updateOne({
       _id: req.params.id
     }, {
-      recordingUrl: JSON.stringify(req.body)
+      recordingUrl: req.body.RecordingUrl
     });
     console.log('Word is updated!');
     console.log(req.body);
