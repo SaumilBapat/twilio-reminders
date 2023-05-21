@@ -8,7 +8,7 @@ function invokeStudio(reminder) {
   client.studio.v2.flows('FW50c3f8489bec77b9b70010efa4c28ed5')
   .executions
   .create({to: '+16475002510', from: '+18677940506', Parameters: {reminderText: reminder.reminderText}})
-  .then(execution => console.log(execution.subResourceUris.recordings));
+  .then(execution => console.log(execution.sid));
 }
 let newReminder = {reminderText: 'This is a test reminder'};
 invokeStudio(newReminder);
