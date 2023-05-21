@@ -54,10 +54,12 @@ class WordsOuput extends Component {
                 <li key={word._id}>
                   <p>
                     <button type="submit" onClick={(event) => this.deleteWord(word._id)}>Delete Reminder</button> 
+                    <b>Id</b> {word._id} <br/>
                     <b>Reminder</b> {word.textReminder} <br/>
                     <b>Time</b> {word.time} <br/>
                     <b>Mobile Number</b> {word.mobileNumber} <br/>
                     <b>Backup Mobile Number</b> {word.backupMobileNumber} <br/>
+                    <b>Recording Url</b> {word.recordingUrl} <br/>
                   </p>
                 </li>
               ))}

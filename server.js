@@ -19,16 +19,31 @@ const wordSchema = new mongoose.Schema({
   time : Number,
   mobileNumber: String,
   backupMobileNumber: String,
+  recordingUrl: String
 });
 
 const Word = mongoose.model('Word', wordSchema);
 
 app.use(express.json());
 
+
 // Define an API endpoint to fetch data from the collection
 app.get('/api/word', async (req, res) => {
   const words = await Word.find();
   res.json(words);
+});
+
+// Define an endpoint to update data in the collection based on it's Id and recording url 
+app.post('/api/word/:id', async (req, res) => {
+  if (steps.trigger.event.body.RecordingSid) {
+    const words = await Word.updateOne({
+      _id: req.params.id
+    }, {
+      recordingUrl: req.body.steps.trigger.event.body.RecordingSid
+    });
+    console.log(words);
+    res.send('Word is updated!');
+  }
 });
 
 // Define an API endpoint to create new data in the collection
