@@ -42,9 +42,11 @@ app.post('/api/word/:id', async (req, res) => {
     }, {
       recordingUrl: JSON.stringify(req.body)
     });
-    console.log(words);
+    console.log(req);
     res.send('Word is updated!');
   }
+  console.log(req);
+  res.send('Word is not updated!');
 });
 
 // Define an API endpoint to create new data in the collection
