@@ -32,5 +32,5 @@ function makeCall(reminder) {
 //   mobileNumber: '+16475002510',
 //   recordingUrl: 'https://api.twilio.com/2010-04-01/Accounts/AC429486261abd4c92654da23285e32221/Recordings/REf799316029393ec7444354ccfcb3d5cf'
 // };
-makeCall(newReminder);
+//makeCall(newReminder);
 module.exports = {SendMessage, makeCall};
