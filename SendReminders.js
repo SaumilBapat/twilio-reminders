@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const SendMessage = require('./MessagingClient');
+const {SendMessage, makeCall} = require('./MessagingClient');
 const moment = require('moment-timezone');
 
 try {
@@ -12,6 +12,7 @@ try {
         const hour = moment().hour(); // get the hour component of the current time
         if (now.hour() == reminder.time) {
             SendMessage(reminder);
+            makeCall(reminder);
         }
       }));
         
