@@ -1,3 +1,4 @@
+// This snipper displays all the reminders
 import React, { useState } from 'react';
 import WordInput from './WordInput';
 import WordsOutput from './WordsOutput';

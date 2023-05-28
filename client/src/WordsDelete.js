@@ -1,3 +1,4 @@
+// This class is used to create a button to delete all words from the database.
 import axios from 'axios';
 import React, { Component } from 'react';
 

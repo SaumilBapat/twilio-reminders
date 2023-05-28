@@ -1,3 +1,4 @@
+//This class is used to create a list of all words in the database.
 import axios from 'axios';
 import React, { Component } from 'react';
 

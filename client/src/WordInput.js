@@ -1,3 +1,4 @@
+// This class is used to create a form to add a new word to the database.
 import axios from 'axios';
 import React, { useState } from 'react';
 

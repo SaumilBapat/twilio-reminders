@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const SendMessage = require('./MessagingClient');
+const {SendMessage, makeCall} = require('./MessagingClient');
 const InvokeStudio = require('./StudioClient');
 
 dotenv.config();
